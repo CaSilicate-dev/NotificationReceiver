@@ -10,7 +10,9 @@ struct Notification {
 }
 fn main() {
     let listener = match TcpListener::bind("0.0.0.0:11451") {
-        Ok(r) => r,
+        Ok(_) => {
+            println!("Notification Reveiver listening on 0.0.0.0:11451")
+        },
         Err(e) => {
             eprintln!("Failed to bind port: {}", e);
             std::process::exit(1);
