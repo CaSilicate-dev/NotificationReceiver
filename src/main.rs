@@ -10,8 +10,9 @@ struct Notification {
 }
 fn main() {
     let listener = match TcpListener::bind("0.0.0.0:11451") {
-        Ok(_) => {
-            println!("Notification Reveiver listening on 0.0.0.0:11451")
+        Ok(r) => {
+            println!("Notification Reveiver listening on 0.0.0.0:11451");
+            r
         },
         Err(e) => {
             eprintln!("Failed to bind port: {}", e);
